@@ -1,0 +1,260 @@
+import React from 'react'
+import styled from 'styled-components';
+import { FaClock, FaEdit, FaPlus } from 'react-icons/fa'
+
+const Container = styled.div`
+    display: flex;
+    @media only screen and (max-width: 400px){
+        flex-direction: column;
+    }
+`;
+
+const ContentHeader = styled.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.5px solid #ccc;
+    flex-direction: column;
+    background-color: #fcf8f8;
+`;
+
+const ContentBody = styled.div`
+    flex: 1;
+    flex-direction: column;
+    border: 0.5px solid #ccc;
+`;
+
+const Header = styled.div`
+    display: flex;
+    height: 60px;
+    background-color:#f0f0f0;
+    border: 0.5px solid #ccc;
+    border-right: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+`;
+
+const Title =  styled.h1`
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #707070;
+`;
+
+const AddTodo = styled.button`
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #71be71;
+    color: white;
+    border: none;
+    margin-right: 10px;
+`;
+
+const Body = styled.body`
+    height: 60px;
+    background-color:#f0f0f0;
+    border: 0.5px solid #ccc;
+    align-items: center;
+    display: flex;
+`;
+
+const TaskList = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const ListItem = styled.div`
+    margin: 10px 0px;
+    background-color: white;
+    padding: 10px;
+    border: 0.5px solid #e7e4e4;
+    width: 50vw;
+    height: 40px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    &:hover{
+        background-color: #01aad0;
+        &:nth-last-child(){
+            color: white;
+        }
+    }
+
+    @media only screen and (max-width: 400px){
+        width: 90vw;
+    }
+`;
+
+const TaskFooter = styled.div`
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    width: 50vw;
+    border: 0.5px solid #ccc;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    @media only screen and (max-width: 400px){
+        width: 100vw;
+    }
+`
+
+const CheckBox = styled.input`
+    margin-left: 10px;
+`
+
+const LabelCheckBox = styled.h1`
+    font-size: 16px;
+    font-weight: 300;
+    color: #707070;
+    margin-left: 5px;
+`
+
+const BodyTextArea =styled.div``
+
+const TextArea = styled.textarea`
+    flex: 1;
+    width: 50vw;
+    border-left: none;
+    border-right: 0.5px solid #ccc;
+    border-bottom: 0.5px solid #ccc;
+    border-top: none;
+    padding: 10px;
+    @media only screen and (max-width: 400px){
+        width: 100vw;
+    }
+`
+const BodyComment = styled.div`
+    height: 50vh;
+    padding: 10px;
+`;
+const BodyFooter = styled.div``;
+
+const TitleComment = styled.p`
+    color: #9e9999;
+`
+const TimeWrapper = styled.div`
+    display: flex;
+    align-items: center;
+`;
+const CreatedTime = styled.span`
+    color: #9e9999;
+    font-size: 12px;
+    margin-left: 5px;
+`
+const Hr = styled.hr`
+    background-color: #eee;
+    border: none;
+    height: 1px;
+    margin-top: 10px;
+`
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const InputCommentWrapper = styled.div`
+    display: flex;
+    align-content: center;
+    padding: 10px;
+`;
+
+const Input = styled.input`
+    flex: 2;
+    padding: 5px;
+    border: 0.5px solid #ccc;
+`;
+
+const Button = styled.button`
+    border: none;
+    background-color: #71be71;
+    color: white;
+    padding: 5px;
+    width: 50px;
+`;
+
+
+const TaskTodo = () => {
+  return (
+    <Container>
+        <ContentHeader>
+            <Header>
+                <Title>Tasks</Title>
+                <AddTodo><FaPlus /></AddTodo>
+            </Header>
+            <TaskList>
+                <ListItem>
+                    <CheckBox type="checkbox" />
+                    <LabelCheckBox>This is task A</LabelCheckBox>
+                </ListItem>
+                <ListItem>
+                    <CheckBox type="checkbox" />
+                    <LabelCheckBox>This is task A</LabelCheckBox>
+                </ListItem>
+                <ListItem>
+                    <CheckBox type="checkbox" />
+                    <LabelCheckBox>This is task A</LabelCheckBox>
+                </ListItem>
+                <ListItem>
+                    <CheckBox type="checkbox" />
+                    <LabelCheckBox>This is task A</LabelCheckBox>
+                </ListItem>
+                <ListItem>
+                    <CheckBox type="checkbox" />
+                    <LabelCheckBox>This is task A</LabelCheckBox>
+                </ListItem>
+            </TaskList>
+            <TaskFooter>
+                    <CheckBox type="checkbox" />
+                    <LabelCheckBox>Mark all as complete</LabelCheckBox>
+            </TaskFooter>
+        </ContentHeader>
+        <ContentBody>
+            <Body>
+                <Title>Created: </Title>
+            </Body>
+            <BodyTextArea>
+                <TextArea rows="5" placeholder='This is task description...'></TextArea>
+            </BodyTextArea>
+            <BodyComment>
+                <Wrapper>
+                    <TitleComment>This is an other comment</TitleComment>
+                    <TimeWrapper>
+                        <FaClock color='#9e9999' size="12px" />
+                        <CreatedTime>3 minutes ago</CreatedTime>
+                    </TimeWrapper>
+                    <Hr />
+                </Wrapper>
+                <Wrapper>
+                    <TitleComment>This is an other comment</TitleComment>
+                    <TimeWrapper>
+                        <FaClock color='#9e9999' size="12px" />
+                        <CreatedTime>3 minutes ago</CreatedTime>
+                    </TimeWrapper>
+                    <Hr />
+                </Wrapper>
+                <Wrapper>
+                    <TitleComment>This is an other comment</TitleComment>
+                    <TimeWrapper>
+                        <FaClock color='#9e9999' size="12px" />
+                        <CreatedTime>3 minutes ago</CreatedTime>
+                    </TimeWrapper>
+                    <Hr />
+                </Wrapper>
+            </BodyComment>
+            <BodyFooter>
+                <InputCommentWrapper>
+                    <Input />
+                    <Button><FaEdit /></Button>
+                </InputCommentWrapper>
+            </BodyFooter>
+        </ContentBody>
+    </Container>
+  )
+}
+
+export default TaskTodo
