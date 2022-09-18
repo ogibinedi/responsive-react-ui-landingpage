@@ -20,7 +20,8 @@ import { Button } from '../../globalStyles';
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
+  const [button] = useState(true);
+//   const [button, setButton] = useState(true);
   const handleClick = () => setClick(!click);
 
   const addShadowScrolling = () => {
